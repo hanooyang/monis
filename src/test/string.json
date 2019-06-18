@@ -1,0 +1,10 @@
+{
+    "caseOne": {
+        "length": 9
+    },
+    "caseTwo": {
+        "length": 7,
+        "example": "hello World"
+    },
+    "caseThree": {}
+}

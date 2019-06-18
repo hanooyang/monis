@@ -1,0 +1,28 @@
+{
+    "name": {
+        "type": "string",
+        "example": "paul"
+    },
+    "age": {
+        "type": "integer",
+        "min": 0,
+        "max": 18
+    },
+    "married": {
+        "type": "boolean",
+        "example": true
+    },
+    "job": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string",
+                "example": "web programmer"
+            },
+            "age": {
+                "type": "integer",
+                "max": 7
+            }
+        }
+    }
+}

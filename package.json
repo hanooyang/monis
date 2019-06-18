@@ -1,0 +1,22 @@
+{
+  "name": "mocko",
+  "version": "1.0.0",
+  "description": "mock service for api",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanooyang/mocko.git"
+  },
+  "author": "dyang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanooyang/mocko/issues"
+  },
+  "homepage": "https://github.com/hanooyang/mocko#readme",
+  "dependencies": {
+    "typescript": "^3.5.2"
+  }
+}
