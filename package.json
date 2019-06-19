@@ -4,7 +4,7 @@
   "description": "mock service for api",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/hanooyang/mocko#readme",
   "dependencies": {
+    "chai": "^4.2.0",
     "typescript": "^3.5.2"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "nyc": "^14.1.1"
   }
 }
