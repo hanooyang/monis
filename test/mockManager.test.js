@@ -35,7 +35,7 @@ describe('Unit test for Mock Service', function () {
         it('only length set in config', function () {
             const result = stringBuilder(configWithLength);
             expect(result).to.have.lengthOf(configWithLength.length);
-        } );
+        });
 
         it('example set in config', function () {
             const result = stringBuilder(configWithExample);
@@ -45,6 +45,37 @@ describe('Unit test for Mock Service', function () {
         it('empty config', function () {
             const result = stringBuilder(configEmpty);
             expect(result).to.be.a('string').and.have.lengthOf(10);
+        });
+    });
+
+    describe('Bool Builder', function () {
+        const boolBuilder = MockSrv.default.typeBuilder.getBuilder('boolean');
+
+        // load config
+        const { caseOne: configEmpty, caseTwo: configWithExample } = require('../src/test/boolean.json');
+
+        it('empty config', function () {
+            const result = boolBuilder(configEmpty);
+            expect(result).to.be.a('boolean');
+        });
+
+        it('example set in config', function () {
+            // {example: false}
+            const result = boolBuilder(configWithExample);
+            expect(result).to.be.false;
+        });
+    });
+
+    describe('Object Builder', function () {
+        const objectBuilder = MockSrv.default.typeBuilder.getBuilder('object');
+
+        // load config
+        const config = require('../src/test/obj.json');
+
+        it('config with obj properties', function () {
+            const result = objectBuilder(config);
+            expect(result).to.be.an('object')
+            .and.to.include.all.keys('name', 'age', 'married', 'job');
         });
     });
 });
