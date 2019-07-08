@@ -18,9 +18,11 @@
   "homepage": "https://github.com/hanooyang/mocko#readme",
   "dependencies": {
     "chai": "^4.2.0",
+    "express": "^4.17.1",
     "typescript": "^3.5.2"
   },
   "devDependencies": {
+    "@types/node": "^12.0.10",
     "chai": "*",
     "nyc": "^14.1.1"
   }
