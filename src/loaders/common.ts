@@ -43,7 +43,7 @@ export class ResponseProvider {
                 const referenceInfo = /^ref#(.*)/.exec(response);
                 if (referenceInfo) {
                     const filename = referenceInfo[1];
-                    return require(path.join(__dirname, '../../src/test', filename));
+                    return require(path.resolve(filename));
                 }
                 return response;
             case 'object':
