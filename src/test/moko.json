@@ -1,0 +1,21 @@
+{
+    "/projects": {
+        "get": {
+            "result": [
+                {
+                    "name": "wave",
+                    "alias": "lts"
+                },
+                {
+                    "name": "radar",
+                    "alias": "pas"
+                }
+            ],
+            "count": 2
+        },
+        "post": "OK"
+    },
+    "/project/wave/monitors": {
+        "get": "ref#monitors.json"
+    }
+}

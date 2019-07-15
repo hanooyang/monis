@@ -1,0 +1,11 @@
+{
+    "caseOne": {
+        "type": "integer",
+        "example": 9
+    },
+    "caseTwo": {
+        "type": "integer",
+        "min": 2,
+        "max": 12
+    }
+}

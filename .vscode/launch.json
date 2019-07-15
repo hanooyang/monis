@@ -7,13 +7,20 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Node Server",
+            "program": "${workspaceFolder}/src/server/server.ts",
+            "outFiles": ["${workspaceFolder}/bin/**/*.js"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Mocha Tests",
             "runtimeExecutable": "mocha",
             "runtimeArgs": [
                 "--timeout",
                 "999999",
                 "--colors",
-                "${workspaceFolder}/test"
+                "${workspaceFolder}/test/**/*.test.js"
             ],
             "internalConsoleOptions": "openOnSessionStart"
         },
