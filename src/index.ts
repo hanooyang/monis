@@ -10,9 +10,11 @@ commander
     .command('serve')
     .description('start mock server')
     .option('-p, --port <port>', 'the port for mock server')
-    .option('--config <path>', 'configuration path')
+    .option('-c, --config <path>', 'configuration path')
     .action(function (options) {
         serve(options);
     });
 
 commander.parse(process.argv);
+
+commander.outputHelp();

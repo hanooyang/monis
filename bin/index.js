@@ -11,9 +11,10 @@ commander_1.default
     .command('serve')
     .description('start mock server')
     .option('-p, --port <port>', 'the port for mock server')
-    .option('--config <path>', 'configuration path')
+    .option('-c, --config <path>', 'configuration path')
     .action(function (options) {
     serve_1.serve(options);
 });
 commander_1.default.parse(process.argv);
+commander_1.default.outputHelp();
 //# sourceMappingURL=index.js.map
