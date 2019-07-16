@@ -81,7 +81,7 @@ class TypeBuilder {
         const len = length || 10;
         const $char = 'qwertyuioplkjhgfdsazxcvbnm0123456789';
         let result = '';
-        for (let i = 0; i <= len; i++) {
+        for (let i = 0; i < len; i++) {
             result += $char.charAt(Math.floor(Math.random() * $char.length));
         }
         return result;
