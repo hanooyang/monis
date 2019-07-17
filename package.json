@@ -1,14 +1,14 @@
 {
-  "name": "mocko",
-  "version": "1.0.0",
+  "name": "monis",
+  "version": "0.0.2",
   "description": "mock service for api",
   "main": "index.ts",
   "bin": {
-    "moko": "bin/index.js"
+    "monis": "bin/index.js"
   },
   "scripts": {
     "test": "mocha",
-    "serve": "moko"
+    "serve": "monis"
   },
   "repository": {
     "type": "git",

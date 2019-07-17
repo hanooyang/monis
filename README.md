@@ -1,31 +1,31 @@
-# Mocko
+# Monis
 Service for API mock
 
 ## Install
 ```bash
-npm install -g moko
+npm install -g monis
 ```
 
 ## Usage
 ```bash
-moko [command] [options]
+monis [command] [options]
 ```
 
 ### Serve
 ```bash
-moko serve -c moko.json -p 3001
+monis serve -c monis.json -p 3001
 ```
 #### port
 - You can specify the server listening port by `-p, --port`.
-- Moko will use `3001` as default port.
+- Monis will use `3001` as default port.
 
 #### config
-- Moko only support `json` formated configuration for api mock. 
+- Monis only support `json` formated configuration for api mock. 
 - You can specify config file by `-c, --config`.
-- It will use `moko.json` in current working directory as default.
+- It will use `monis.json` in current working directory as default.
 
 ### Basic Example
-Moko configuration is like below:
+monis configuration is like below:
 ```json
 {"path": { "method": response}}
 ```
@@ -63,7 +63,7 @@ There are three types of `response`:
 
 **Full Example:**
 ```json
-// moko.json
+// moni.json
 {
     "/projects": {
         "get": {
@@ -86,7 +86,7 @@ There are three types of `response`:
     }
 }
 ```
-Moko will handle the below routes:
+monis will handle the below routes:
 ```
 GET /projects
 POST /projects
