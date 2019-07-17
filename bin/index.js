@@ -6,7 +6,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var commander_1 = __importDefault(require("commander"));
 var serve_1 = require("./commands/serve");
-commander_1.default.version('0.0.1', '-v, --version');
+commander_1.default.version('0.0.2', '-v, --version');
 commander_1.default
     .command('serve')
     .description('start mock server')
