@@ -1,31 +1,31 @@
-# Moni
+# Monis
 Service for API mock
 
 ## Install
 ```bash
-npm install -g moni
+npm install -g monis
 ```
 
 ## Usage
 ```bash
-moni [command] [options]
+monis [command] [options]
 ```
 
 ### Serve
 ```bash
-moni serve -c moni.json -p 3001
+monis serve -c monis.json -p 3001
 ```
 #### port
 - You can specify the server listening port by `-p, --port`.
-- Moni will use `3001` as default port.
+- Monis will use `3001` as default port.
 
 #### config
-- moni only support `json` formated configuration for api mock. 
+- Monis only support `json` formated configuration for api mock. 
 - You can specify config file by `-c, --config`.
-- It will use `moni.json` in current working directory as default.
+- It will use `monis.json` in current working directory as default.
 
 ### Basic Example
-moni configuration is like below:
+monis configuration is like below:
 ```json
 {"path": { "method": response}}
 ```
@@ -86,7 +86,7 @@ There are three types of `response`:
     }
 }
 ```
-moni will handle the below routes:
+monis will handle the below routes:
 ```
 GET /projects
 POST /projects
