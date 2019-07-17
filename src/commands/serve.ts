@@ -4,14 +4,14 @@ import fs from 'fs';
 
 export function serve(options: any) {
     const port = options.port || 3001;
-    const configPath = options.config || 'moko.json';
+    const configPath = options.config || 'monis.json';
 
     const router = express.Router();
     const app = express();
 
     // ANCHOR  load config
     if (!fs.existsSync(path.resolve(configPath))) {
-        return console.error(`Cannot find config json at ${configPath}, please make sure you have moko.json in current path or set your config path by --conf`);
+        return console.error(`Cannot find config json at ${configPath}, please make sure you have monis.json in current path or set your config path by --conf`);
     }
     const config = require(path.resolve(configPath));
 
