@@ -3,7 +3,7 @@ import commander from 'commander';
 
 import { serve } from './commands/serve';
 
-commander.version('0.0.2', '-v, --version');
+commander.version('0.0.3', '-v, --version');
 
 commander
     .command('serve')
@@ -16,4 +16,4 @@ commander
 
 commander.parse(process.argv);
 
-commander.outputHelp();
+if (process.argv.length === 2) commander.outputHelp();
