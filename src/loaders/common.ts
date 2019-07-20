@@ -23,10 +23,9 @@ export class RouteProvider {
         paths.forEach(path => {
             const methods = Object.keys(config[path]);
             methods.forEach(method => {
+                const { body, code } = this.response.load(config[path][method]);
                 this.router[method](path, (req, res) => {
-                    res.json(
-                        this.response.load(config[path][method])
-                    );
+                    res.status(code).json(body);
                 });
                 console.log(`${method.toUpperCase()}\t${path}`);
             });
@@ -43,13 +42,26 @@ export class ResponseProvider {
                 const referenceInfo = /^ref#(.*)/.exec(response);
                 if (referenceInfo) {
                     const filename = referenceInfo[1];
-                    return require(path.resolve(filename));
+                    return {
+                        body: require(path.resolve(filename)),
+                        code: 200
+                    };
                 }
-                return response;
+                return {
+                    body: response,
+                    code: 200
+                };
             case 'object':
-                return response;
+                const { '@code': resCode, ...body } = response;
+                return {
+                    body,
+                    code: resCode || 200
+                };
             default:
-                return 'OK';
+                return {
+                    body: 'OK',
+                    code: 200
+                };
         }
     }
 };
