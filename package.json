@@ -1,6 +1,6 @@
 {
   "name": "monis",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "mock service for api",
   "main": "index.ts",
   "bin": {
@@ -12,16 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hanooyang/mocko.git"
+    "url": "git+https://github.com/hanooyang/monis.git"
   },
   "author": "dyang",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hanooyang/mocko/issues"
+    "url": "https://github.com/hanooyang/monis/issues"
   },
-  "homepage": "https://github.com/hanooyang/mocko#readme",
+  "homepage": "https://github.com/hanooyang/monis#readme",
   "dependencies": {
-    "chai": "^4.2.0",
     "commander": "^2.20.0",
     "express": "^4.17.1",
     "typescript": "^3.5.2"
