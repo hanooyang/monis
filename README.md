@@ -31,20 +31,23 @@ monis configuration is like below:
 ```
 There are three types of `response`:
 1. `object`
+> `json` response is supported in configuration.
+ you can also set the response of this request by using `@code`  in config json.
 ```json
 {
     "get": {
             "result": [
                 {
-                    "name": "wave",
-                    "alias": "lts"
+                    "name": "apple",
+                    "price": 5.3
                 },
                 {
-                    "name": "radar",
-                    "alias": "pas"
+                    "name": "melon",
+                    "price": 2.5
                 }
             ],
-            "count": 2
+            "count": 2,
+            "@code": 500
         }
 }
 ```
@@ -55,9 +58,10 @@ There are three types of `response`:
 }
 ```
 3. `reference`
+> you can set a json file as the response using `ref#` + `relative path`.
 ```json
 {
-    "get": "ref#monitors.json"
+    "get": "ref#meat.json"
 }
 ```
 
@@ -65,32 +69,33 @@ There are three types of `response`:
 ```json
 // moni.json
 {
-    "/projects": {
+    "/fruit": {
         "get": {
             "result": [
                 {
-                    "name": "wave",
-                    "alias": "lts"
+                    "name": "apple",
+                    "price": 5.3
                 },
                 {
-                    "name": "radar",
-                    "alias": "pas"
+                    "name": "melon",
+                    "price": 2.5
                 }
             ],
-            "count": 2
+            "count": 2,
+            "@code": 500
         },
         "post": "OK"
     },
-    "/project/wave/monitors": {
-        "get": "ref#monitors.json"
+    "/meat": {
+        "get": "ref#meat.json"
     }
 }
 ```
 monis will handle the below routes:
 ```
-GET /projects
-POST /projects
-GET /project/wave/monitors
+GET /fruit
+POST /fruit
+GET /meat
 ```
 
 
