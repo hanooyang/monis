@@ -10,8 +10,12 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var path = require('path');
+var path_1 = __importDefault(require("path"));
+var mockjs_1 = require("mockjs");
 /**
  * Route Provider
  * provide route for mock service
@@ -30,9 +34,11 @@ var RouteProvider = /** @class */ (function () {
         paths.forEach(function (path) {
             var methods = Object.keys(config[path]);
             methods.forEach(function (method) {
-                var _a = _this.response.load(config[path][method]), body = _a.body, code = _a.code;
                 _this.router[method](path, function (req, res) {
-                    res.status(code).json(body);
+                    var resConf = config[path][method];
+                    var resData = typeof resConf === 'function' ? resConf(req.params, req.query) : resConf;
+                    var _a = _this.response.load(resData), body = _a.body, code = _a.code;
+                    res.status(code).json(mockjs_1.mock(body));
                 });
                 console.log(method.toUpperCase() + "\t" + path);
             });
@@ -54,7 +60,7 @@ var ResponseProvider = /** @class */ (function () {
                 if (referenceInfo) {
                     var filename = referenceInfo[1];
                     return {
-                        body: require(path.resolve(filename)),
+                        body: require(path_1.default.resolve(filename)),
                         code: 200
                     };
                 }
