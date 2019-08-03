@@ -3,7 +3,7 @@ import commander from 'commander';
 
 import { serve } from './commands/serve';
 
-commander.version('0.0.3', '-v, --version');
+commander.version('0.1.0', '-v, --version');
 
 commander
     .command('serve')

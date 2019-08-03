@@ -1,6 +1,6 @@
 {
   "name": "monis",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "mock service for api",
   "main": "index.ts",
   "bin": {
