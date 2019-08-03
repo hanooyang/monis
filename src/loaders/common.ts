@@ -1,4 +1,5 @@
-const path = require('path');
+import path from 'path';
+import { mock } from 'mockjs';
 
 /**
  * Route Provider
@@ -23,9 +24,11 @@ export class RouteProvider {
         paths.forEach(path => {
             const methods = Object.keys(config[path]);
             methods.forEach(method => {
-                const { body, code } = this.response.load(config[path][method]);
-                this.router[method](path, (req, res) => {
-                    res.status(code).json(body);
+                this.router[method](path, (req: any, res: any) => {
+                    const resConf = config[path][method];
+                    const resData = typeof resConf === 'function' ? resConf(req.params, req.query) : resConf;
+                    const { body, code } = this.response.load(resData);
+                    res.status(code).json(mock(body));
                 });
                 console.log(`${method.toUpperCase()}\t${path}`);
             });
