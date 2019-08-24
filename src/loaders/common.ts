@@ -9,9 +9,9 @@ export class RouteProvider {
     router: any;
     response: any;
 
-    constructor(router: any) {
+    constructor(router: any, hot: boolean) {
         this.router = router;
-        this.response = new ResponseProvider();
+        this.response = new ResponseProvider(hot);
         console.log('route provider init success!');
     }
 
@@ -34,9 +34,20 @@ export class RouteProvider {
             });
         });
     }
+
+    public reload(config: any, router: any) {
+        console.log('------------------reloading route info------------------');
+        this.router = router;
+        this.load(config);
+    }
 };
 
 export class ResponseProvider {
+    hot: boolean;
+
+    constructor(hot: boolean) {
+        this.hot = hot;
+    }
     public load(response: any) {
         // console.log(typeof response);
         switch (typeof response) {
@@ -45,6 +56,9 @@ export class ResponseProvider {
                 const referenceInfo = /^ref#(.*)/.exec(response);
                 if (referenceInfo) {
                     const filename = referenceInfo[1];
+                    if (this.hot) {
+                        delete require.cache[path.resolve(filename)];
+                    }
                     return {
                         body: require(path.resolve(filename)),
                         code: 200

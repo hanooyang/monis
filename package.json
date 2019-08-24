@@ -1,6 +1,6 @@
 {
   "name": "monis",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "mock service for api",
   "main": "index.ts",
   "bin": {
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/hanooyang/monis#readme",
   "dependencies": {
+    "chokidar": "^3.0.2",
     "commander": "^2.20.0",
     "express": "^4.17.1",
     "mockjs": "^1.0.1-beta3",
