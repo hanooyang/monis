@@ -21,9 +21,9 @@ var mockjs_1 = require("mockjs");
  * provide route for mock service
  */
 var RouteProvider = /** @class */ (function () {
-    function RouteProvider(router) {
+    function RouteProvider(router, hot) {
         this.router = router;
-        this.response = new ResponseProvider();
+        this.response = new ResponseProvider(hot);
         console.log('route provider init success!');
     }
     RouteProvider.prototype.add = function () { };
@@ -44,12 +44,18 @@ var RouteProvider = /** @class */ (function () {
             });
         });
     };
+    RouteProvider.prototype.reload = function (config, router) {
+        console.log('------------------reloading route info------------------');
+        this.router = router;
+        this.load(config);
+    };
     return RouteProvider;
 }());
 exports.RouteProvider = RouteProvider;
 ;
 var ResponseProvider = /** @class */ (function () {
-    function ResponseProvider() {
+    function ResponseProvider(hot) {
+        this.hot = hot;
     }
     ResponseProvider.prototype.load = function (response) {
         // console.log(typeof response);
@@ -59,6 +65,9 @@ var ResponseProvider = /** @class */ (function () {
                 var referenceInfo = /^ref#(.*)/.exec(response);
                 if (referenceInfo) {
                     var filename = referenceInfo[1];
+                    if (this.hot) {
+                        delete require.cache[path_1.default.resolve(filename)];
+                    }
                     return {
                         body: require(path_1.default.resolve(filename)),
                         code: 200

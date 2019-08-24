@@ -39,6 +39,9 @@ monis serve -c monis.json -p 3001
 - You can specify config file by `-c, --config`.
 - It will use `monis.json` in current working directory as default.
 
+#### hot
+- You can enable hot reload mode by `--hot`.
+
 [⏫ go to top](#quick-links)
 
 ### Getting Start:
